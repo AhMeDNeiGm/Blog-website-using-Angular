@@ -1,0 +1,31 @@
+@import "primeicons/primeicons.css";
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon
+{
+    color: yellow;
+}
+
+.p-editor-container .p-editor-content .ql-editor
+{
+  min-height: 300px;
+}
+
+.p-dropdown.p-component.p-inputwrapper.p-dropdown-clearable
+{
+  width: 100% !important;
+}
+.p-dropdown:not(.p-disabled).p-focus
+{
+  box-shadow: 0 0 0 0.2rem #9a3333;
+}
+
+.p-toast-message-content.ng-tns-c3020094734-3.ng-star-inserted
+{
+  width: 100%;
+}

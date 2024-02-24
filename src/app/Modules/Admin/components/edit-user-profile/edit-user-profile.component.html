@@ -1,0 +1,187 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8 bg-[#fafafa] rounded-xl p-4 shadow-2xl hover:shadow-lg transtion-">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <!-- 1th row -->
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 flex flex-col items-center gap-3 space-x-4 m-auto ">
+                        <!-- Profile Image -->
+                        <div
+                            class="w-24 h-24 bg-white rounded-full overflow-hidden border-4 border-[var(--primary-color)]">
+                            <img class="w-full h-full object-cover"
+                                src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                                alt="Your Image">
+                        </div>
+                        <div class="m-0">
+                            <p> <a href="" class="text-[var(--primary-color)]">Change Photo</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control border-[#203947]" id="firstName"
+                                formControlName="firstName">
+                            @if (userForm.get(FormControlsNames.firstName)?.errors &&
+                            userForm.get(FormControlsNames.firstName)?.touched) {
+
+                            <div class="text-red-700">
+                                @if (userForm.get(FormControlsNames.firstName)?.getError('required')) { <p>*First Name
+                                    is Required</p> }
+
+                                @if (userForm.get(FormControlsNames.firstName)?.getError('minlength')) { <p>Name Must
+                                    Be 3 Char</p> }
+                            </div>
+
+                            }
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control border-[#203947]" id="lastName"
+                                formControlName="lastName">
+                            @if (userForm.get(FormControlsNames.lastName)?.errors &&
+                            userForm.get(FormControlsNames.lastName)?.touched) {
+                            <div class="text-red-700">
+                                @if (userForm.get(FormControlsNames.lastName)?.getError('required')) { <p>*Last Name
+                                    is Required</p> }
+                                @if (userForm.get(FormControlsNames.lastName)?.getError('minlength')) { <p>Name Must
+                                    Be 3 Char</p> }
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- 2th row -->
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="occupation" class="form-label">Occupation</label>
+                        <input type="text" class="form-control border-[#203947]" id="occupation"
+                            formControlName="occupation">
+                        @if (userForm.get(FormControlsNames.occupation)?.errors &&
+                        userForm.get(FormControlsNames.occupation)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.occupation)?.getError('required')) { <p>*Occupation
+                                is Required</p> }
+                        </div>
+                        }
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control border-[#203947]" id="location"
+                            formControlName="location">
+                        @if (userForm.get(FormControlsNames.location)?.errors &&
+                        userForm.get(FormControlsNames.location)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.location)?.getError('required')) { <p>*Location
+                                is Required</p> }
+                        </div>
+                        }
+                    </div>
+                </div>
+                <!-- 3th row -->
+                <div class="col mb-3">
+                    <label for="bio" class="form-label">Bio</label>
+                    <textarea class="form-control border-[#203947]" id="bio" formControlName="bio"></textarea>
+                    @if (userForm.get(FormControlsNames.bio)?.errors &&
+                    userForm.get(FormControlsNames.bio)?.touched) {
+                    <div class="text-red-700">
+                        @if (userForm.get(FormControlsNames.bio)?.getError('required')) { <p>*Bio
+                            is Required</p> }
+                    </div>
+                    }
+
+                </div>
+                <!-- 4th row -->
+                <div class="row">
+                    <div class="col-lg-5 col-sm-12 mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control border-[#203947]" id="username"
+                            formControlName="username">
+                        @if (userForm.get(FormControlsNames.username)?.errors &&
+                        userForm.get(FormControlsNames.username)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.username)?.getError('required')) { <p>*Username
+                                is Required</p> }
+                        </div>
+                        }
+                    </div>
+                    <div class="col-lg-7 col-sm-12 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control border-[#203947]" id="email" formControlName="email">
+                        @if (userForm.get(FormControlsNames.email)?.errors &&
+                        userForm.get(FormControlsNames.email)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.email)?.getError('required')) { <p>*Email
+                                is Required</p> }
+                            @if (userForm.get(FormControlsNames.email)?.getError('email')) { <p>Plaese write
+                                Email Valid</p> }
+                        </div>
+                        }
+                    </div>
+                </div>
+                <!-- 5th row -->
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" class="form-control border-[#203947]" id="password"
+                            formControlName="password">
+                        @if (userForm.get(FormControlsNames.password)?.errors &&
+                        userForm.get(FormControlsNames.password)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.password)?.getError('required')) { <p>*Password
+                                is Required</p> }
+                        </div>
+                        }
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="password" class="form-label">New Password</label>
+                        <input type="text" class="form-control border-[#203947]" id="password"
+                            formControlName="password">
+                    </div>
+
+                </div>
+                <!-- 6th row -->
+                <div class="row">
+                    <div class="col-lg-7 col-sm-12 mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control border-[#203947]" id="phone" formControlName="phone">
+                        @if (userForm.get(FormControlsNames.phone)?.errors &&
+                        userForm.get(FormControlsNames.phone)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.phone)?.getError('required')) { <p>*Phone
+                                is Required</p> }
+                        </div>
+                        }
+                    </div>
+                    <div class="col-lg-5 col-sm-12 mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control border-[#203947]" id="age" formControlName="age">
+                        @if (userForm.get(FormControlsNames.age)?.errors &&
+                        userForm.get(FormControlsNames.age)?.touched) {
+                        <div class="text-red-700">
+                            @if (userForm.get(FormControlsNames.age)?.getError('required')) { <p>*Age
+                                is Required</p> }
+                        </div>
+                        }
+                    </div>
+                </div>
+                <!-- 7th row -->
+                <div class="row mt-3 flex justify-center items-center gap-2">
+                    <div class="col-lg-4 col-sm-12 text-center">
+                        <button label="Save" icon="pi pi-check"
+                            class="border-2 border-[var(--primary-color)] text-[var(--primary-color)] px-8 py-2 rounded-full shadow-md hover:bg-[var(--primary-color)] hover:text-white focus:outline-none">
+                            Save <i class="pi pi-save ms-3"></i>
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 text-center">
+                        <button label="Cancel" icon="pi pi-check"
+                            class="border-2 border-[var(--primary-color)] text-[var(--primary-color)] px-8 py-2 rounded-full shadow-md hover:bg-[var(--primary-color)] hover:text-white focus:outline-none">
+                            Cancel
+                            <i class="pi pi-ban ms-3"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<button routerLink="add" class="btn btn-warning">Add Blog</button>
+<button routerLink="5" class="btn btn-danger">Edit Blog</button>
+<button routerLink="blogdetails/3" class="btn btn-dark ">Blog Details</button>
+<br>
+
+
+
+<div class="ms-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <input type="text" [(ngModel)]="searchAny" class="form-control my-3 rounded-pill me-3"
+                placeholder="Search user" />
+            <!-- <div style="background-color: brown; width: 40px; height: 31px"
+                        class="d-flex justify-content-around align-items-center rounded-circle text-white">
+                        <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+                    </div> -->
+        </div>
+        <div>
+            <fa-icon [icon]="faFilter" class="fs-5 me-3"></fa-icon>
+            <select class="rounded-2 p-2 border-info-subtle" (change)="onSelectCategory($event)">
+                <option value="">Select Category</option>
+                <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="fixed-header">
+                <tr class="font-medium text-[var(--text-color)] leading-4">
+                    <th>Publisher</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>State</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="space-y-4">
+                <br />
+                @for(post of (filteredPosts | filter:searchAny | paginate: { itemsPerPage: itemsPerPage,
+                currentPage: p });
+                track
+                post.id){
+                <tr class="rounded-start-pill">
+                    <td class="d-flex rounded-start-pill ps-4 py-3">
+                        <img class="rounded-circle self-center" src="../../../../../assets/images/1.webp" alt="" />
+                        <div class="post__details">
+                            <h5>{{ getUserName(post.userId) }}</h5>
+                            <p class="m-0">{{ getUserDetail(post.userId) }}</p>
+                        </div>
+                    </td>
+                    <td class="post__router" routerLink="blogdetails/{{post.id}}">{{ post.title }}</td>
+                    <td>
+                        <p-tag class="p-2" [severity]="getSeverity(post.category)" [rounded]="true">{{
+                            post.category
+                            }}</p-tag>
+                    </td>
+                    <td>{{ post.state }}</td>
+                    <td class="rounded-end-pill pe-4 text-center">
+                        <a routerLink="{{post.id}}" class="btn btn-outline-primary mb-2 mb-md-0  mx-2">Edit</a>
+                        <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Delete</button>
+
+                    </td>
+                </tr>
+                <br />
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+
+
+
+<div class="card flex justify-content-center gap-2">
+    <p-toast></p-toast>
+    <p-confirmDialog></p-confirmDialog>
+</div>

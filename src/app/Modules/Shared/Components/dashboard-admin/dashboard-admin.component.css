@@ -1,0 +1,146 @@
+.admin-dashborad-header-bg {
+    height: 80px;
+    background-color: #DEDEDE;
+}
+
+#stprojname {
+    color: #9a3333;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#ndprojname {
+    font-size: 30px;
+    color: black;
+}
+
+
+.admin-dashborad-header_image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+
+.admin-dashborad-header_image_icon i {
+    font-size: 30px;
+}
+
+.admin-dashborad-header_menu div i {
+    font-size: 50px;
+}
+
+.sidebar {
+    background-color: #DEDEDE;
+    /* ! < !-- !-------------------------col-------------------- --> */
+    /* height: 610px; */
+}
+
+.sidebar-bars {
+    /* ! < !-- !-------------------------col-------------------- --> */
+    /* display: none; */
+}
+
+.show {
+    display: block;
+}
+
+.transitsion {
+    transition: all .8s ease-in-out;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.sidebar_p {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.sidebar-nav:hover {
+    width: 100%;
+    background-color: #FAFAFA;
+    color: #9a3333;
+}
+
+.sidebar-all-icons {
+    margin-top: 25vh;
+}
+
+@media (max-width:400px) {
+    .sidebar-nav i {
+        font-size: 30px;
+        margin-right: 50px;
+    }
+
+    .sidebar_p {
+        font-size: 0px;
+    }
+
+    .sidebar {
+        background-color: transparent;
+    }
+
+    #bars i {
+        font-size: 25px;
+    }
+
+    .admin-dashborad-header_image_icon i {
+        font-size: 25px;
+    }
+
+    #stprojname {
+        font-size: 25px;
+    }
+
+    #ndprojname {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:300px) {
+    #sidebar-bars {
+        background-color: transparent;
+    }
+
+    #bars i {
+        font-size: 15px;
+    }
+
+    .admin-dashborad-header_image_icon i {
+        font-size: 15px;
+    }
+
+    #stprojname {
+        font-size: 15px;
+    }
+
+    #ndprojname {
+        font-size: 15px;
+    }
+}
+
+/* .a-pics {
+    overflow: hidden;
+}
+.a-pics img {
+    border-radius: 24px;
+    width: 400px;
+    height: 400px;
+}
+.proj-text {
+    opacity: 0;
+    transition: all .8s ease-in-out;
+    top: -100%;
+    border-radius: 24px;
+    height: 100%;
+    background-color: #9f4aa4eb !important;
+    text-align: center;
+    width:100px;
+    
+}
+
+.a-pics:hover .proj-text {
+    opacity: 1;
+    top: 0
+} */

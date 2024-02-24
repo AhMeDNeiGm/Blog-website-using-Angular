@@ -1,0 +1,122 @@
+@if (!users) {
+<div class="d-flex justify-content-center vh-100 align-items-center"><i class="pi pi-spin pi-spinner display-1 "></i>
+</div>
+}@else {
+
+<div class="ms-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <input type="text" [(ngModel)]="searchAny" class="form-control my-3 rounded-pill me-3"
+        placeholder="Search user" />
+      <!-- <div style="background-color: brown; width: 40px; height: 31px"
+            class="d-flex justify-content-around align-items-center rounded-circle text-white">
+            <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+          </div> -->
+    </div>
+    <div>
+
+      <div class="dropdown">
+        <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <fa-icon [icon]="faFilter" class="fs-5 me-3  text-secondary"></fa-icon>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item " (click)="onSelectCategory($event)">all</a></li>
+          <li><a class="dropdown-item " (click)="onSelectCategory($event)">admin</a></li>
+          <li><a class="dropdown-item " (click)="onSelectCategory($event)">user</a></li>
+
+        </ul>
+      </div>
+
+
+      <!-- <fa-icon [icon]="faFilter" class="fs-5 me-3"></fa-icon>
+
+      <select (change)="onSelectCategory($event)">
+        <option value="">Select Category</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select> -->
+
+    </div>
+  </div>
+
+  <div class=" table-responsive">
+    <table class="table">
+      <thead class="fixed-header">
+        <tr class="font-medium text-[var(--text-color)] leading-4">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>State</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="space-y-4">
+        <br />
+        @for(user of (filteredUsers | filter:searchAny | paginate: { itemsPerPage: itemsPerPage, currentPage: p });
+        track
+        user.id){
+        <tr class="rounded-start-pill">
+          <td class="d-flex rounded-start-pill ps-4 py-3">
+            <img class="rounded-circle self-center" src="../../../../../assets/images/1.webp" alt="" />
+            <div class="user__details">
+              <h5>{{ user.firstname +' '+ user.lastname }}</h5>
+              <p class="m-0">{{ user.role }}</p>
+            </div>
+          </td>
+          <td>{{ user.email }}</td>
+          <td>
+            <p-tag class="p-2" [severity]="getSeverity(user.role)" [rounded]="true">{{
+              user.role
+              }}</p-tag>
+          </td>
+          <td>{{ user.isActive }}</td>
+          <td class="rounded-end-pill pe-4 text-center">
+
+
+
+            <!-- Example single danger button -->
+            <div class="btn-group">
+
+              <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <fa-icon class="me-1" [icon]="faEllipsisV"></fa-icon>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a [routerLink]=" '/dashboard' + '/users/edit/' + user._id" class="dropdown-item  btn-primary"
+                    href="#">Edit</a></li>
+                <li><a class="dropdown-item btn btn-danger" (click)="deleteUser(user.id)">Delete</a></li>
+
+              </ul>
+            </div>
+
+
+
+            <!-- 
+            <a [routerLink]=" '/dashboard' + '/users/edit/' + user._id"
+              class="btn btn-outline-primary mb-2 mb-md-0  mx-2">Edit</a>
+            <button type="button" (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button> -->
+
+          </td>
+        </tr>
+        <br />
+        }
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="d-flex justify-content-center align-items-center mt-3">
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+
+  </div>
+</div>
+}
+
+
+
+<div class="card flex justify-content-center gap-2">
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+</div>

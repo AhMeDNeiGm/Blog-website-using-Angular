@@ -1,0 +1,18 @@
+button
+{
+    color: white;
+}
+.input-round
+{
+    border-radius: 32.5px;
+}
+
+
+.character-count.valid {
+    color: black; 
+  }
+  
+  .character-count.invalid {
+    color: red; 
+  }
+

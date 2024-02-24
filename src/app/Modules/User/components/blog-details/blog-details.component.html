@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8 col-sm-10 m-auto">
+            <h1 class="my-3 fw-bold  display-6">{{this.titleBlog}}</h1>
+            <div class="d-flex align-items-center gap-2 my-3">
+                <img src="../../../../../assets/images/1.webp" class="user-img rounded-circle" alt="">
+                <div>
+                    <h6 class="text-danger">Zach Quinn</h6>
+                    <p class="m-0">August 15,2024</p>
+                </div>
+            </div>
+            <hr>
+            <div class=" m-auto mt-5 mb-3">
+                
+                @if (coverType && coverType.split("/")[0] === "image") {
+                    <img src={{this.coverimageURL}}>
+                }
+                @else if (coverType && coverType.split("/")[0] === "video") {
+                    <div [innerHTML]="sanitizeVideoUrl()" class=" w-100 "></div>
+                }
+            </div>
+            <div [innerHTML]="getSanitizedHtml()" ></div>
+            
+            <!-- <p>
+                Lorem ipsum dolor sit amet consectetur. Hac semper purus libero sit vitae dictum amet mauris. Egestas
+                non tincidunt at enim. Habitant faucibus mattis sit dis mauris tempor euismod aliquam bibendum. Nec sit
+                ac tempus molestie at suspendisse sit lobortis at. Commodo mattis neque neque morbi sed velit id
+                suspendisse. Adipiscing suspendisse sit ultricies sem odio dolor. Odio egestas arcu cursus pellentesque
+                pellentesque. Condimentum sagittis eu auctor ut pulvinar nulla duis erat. Tempus semper pellentesque
+                vehicula pulvinar feugiat tristique consectetur posuere dolor. Donec id diam enim condimentum
+                vestibulum. Sed et leo consectetur semper. Nec facilisis scelerisque cursus sem.
+            </p>
+            <img src="../../../../../assets/images/bost-detail.jpg" class="img-fluid my-5" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur. Hac semper purus libero sit vitae dictum amet mauris. Egestas non
+                tincidunt at enim. Habitant faucibus mattis sit dis mauris tempor euismod aliquam bibendum. Nec sit ac
+                tempus molestie at suspendisse sit lobortis at. Commodo mattis neque neque morbi sed velit id
+                suspendisse. Adipiscing suspendisse sit ultricies sem odio dolor. Odio egestas arcu cursus pellentesque
+                pellentesque. Condimentum sagittis eu auctor ut pulvinar
+
+                nulla duis erat. Tempus semper pellentesque vehicula pulvinar feugiat tristique consectetur posuere
+                dolor. Donec id diam enim condimentum vestibulum. Sed et leo consectetur semper. Nec facilisis
+                scelerisque cursus sem.
+
+                Lorem ipsum dolor sit amet consectetur. Hac semper purus libero sit vitae dictum amet mauris. Egestas
+                non tincidunt at enim. Habitant faucibus mattis sit dis mauris tempor euismod aliquam bibendum. Nec sit
+                ac tempus molestie at suspendisse sit lobortis at. Commodo mattis neque neque morbi sed velit id
+                suspendisse. Adipiscing suspendisse sit ultricies sem odio dolor. Odio egestas arcu cursus pellentesque
+                pellentesque. Condimentum sagittis eu auctor ut pulvinar
+                nulla duis erat. Tempus semper pellentesque vehicula pulvinar feugiat tristique consectetur posuere
+                dolor. Donec id diam enim condimentum vestibulum. Sed et leo consectetur semper. Nec facilisis
+                scelerisque cursus sem.</p> -->
+
+            <div class="my-5 d-flex gap-3 flex-wrap">
+                <span class="bg-slate-200 rounded-pill py-1 px-3">UI Design</span>
+                <span class="bg-slate-200 rounded-pill py-1 px-3">UI Design</span>
+                <span class="bg-slate-200 rounded-pill py-1 px-3">UI Design</span>
+                <span class="bg-slate-200 rounded-pill py-1 px-3">UI Design</span>
+                <span class="bg-slate-200 rounded-pill py-1 px-3">UI Design</span>
+            </div>
+        </div>
+    </div>
+</div>

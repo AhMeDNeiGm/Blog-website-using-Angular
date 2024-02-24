@@ -1,0 +1,51 @@
+<div class=" mt-2 ms-4 bg-secondary-subtle min-vh-100 p-5 d-flex justify-content-around flex-column"
+    style="border-top-left-radius: 30px">
+    <div class="d-flex justify-content-sm-between gap-4 justify-content-center flex-wrap">
+        <div>
+            <h1 class="h1">Dashboard</h1>
+            <p>Hi Abdo</p>
+        </div>
+        <div class="bg-white rounded-4 d-flex py-4 px-4 gap-3 align-items-center">
+            <p class="m-0 fs-3"><fa-icon [icon]="faUsers"></fa-icon></p>
+            <p class="fs-4 fw-bolder m-0">{{getUsersCount()}}</p>
+            <p class="m-0 fs-3"><fa-icon [icon]="faNewspaper"></fa-icon></p>
+            <p class="fs-4 fw-bolder m-0">{{getPostsCount()}}</p>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center g-3 mt-5">
+        <div class="col-lg-6">
+            <div class="d-flex align-items-center justify-content-around bg-white rounded-top-4 p-3">
+                <h2 class="h2">Latest Blogs</h2>
+                <p class="px-2 py-1"><fa-icon (click)="changingOrderPost()" [icon]="AngleDoubleIconPost"></fa-icon></p>
+            </div>
+
+            <div class="bg-white px-4 pb-4 pt-2 mt-2 rounded-bottom-4" style="max-height: 300px; overflow-y: auto;">
+                @for(post of posts ; track post.id){
+                <div class="bg-secondary-subtle rounded-4 my-2 py-3 px-2 d-flex justify-content-around">
+                    <div>{{post.title}}</div>
+                    <div>{{post.category}}</div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="d-flex align-items-center justify-content-around bg-white rounded-top-4 p-3">
+                <h2 class="h2">Latest Users</h2>
+                <p class="px-2 py-1"><fa-icon (click)="changingOrderUser()" [icon]="AngleDoubleIconUser"></fa-icon></p>
+            </div>
+
+            <div style="max-height: 300px; overflow-y: auto;" class="bg-white px-4 pb-4 pt-2 mt-2 rounded-bottom-4">
+                @for(user of users ; track user._id){
+                <!-- <a [routerLink]=" '/dashboard' + '/users/' + user._id" -->
+                <a [routerLink]="_GoToService.page.DashAdminUserProfile + user._id"
+                    class="bg-secondary-subtle rounded-4 my-2 py-3 px-2 d-flex justify-content-around">
+                    <div>{{user.firstname +' '+ user.lastname}}</div>
+                    <div>{{user.role}}</div>
+                </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

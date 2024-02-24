@@ -1,0 +1,36 @@
+/* .footer-place{
+    margin-top:1000px;
+} */
+hr {
+    border-top: 4px solid black;  
+    }
+.footer-bg{
+    background-color: #FAFAFA;
+}
+.footer{
+    margin: auto;
+    width: 90%;
+}
+#stprojname{
+    color: #9a3333;
+font-weight: bold;
+font-size: 30px;
+}
+#ndprojname{
+    font-size: 30px; 
+    color: black;
+}
+.footer-col2_p1{
+    font-size: 30px;
+    font-weight: 700;
+}
+.footer-col2_row_p2{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+
+}
+
+.footer-col3-icons{
+    font-size: 30px;
+}

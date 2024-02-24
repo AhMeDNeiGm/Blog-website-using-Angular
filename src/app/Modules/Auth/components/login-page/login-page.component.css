@@ -1,0 +1,22 @@
+/* @media (max-width: 767px) {
+    .login {
+        background-color: #9a3333;
+    }
+}
+
+.login {
+    height: 100vh;
+}
+
+p {
+    font-size: 11px;
+} */
+
+:host {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+

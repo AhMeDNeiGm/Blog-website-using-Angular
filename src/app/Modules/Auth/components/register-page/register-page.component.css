@@ -1,0 +1,20 @@
+/* @media (max-width: 767px) {
+    .registertion {
+        background-color: #9a3333;
+    }
+}
+
+.registertion {
+    height: 100vh;
+}
+
+p {
+    font-size: 11px;
+} */
+:host {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

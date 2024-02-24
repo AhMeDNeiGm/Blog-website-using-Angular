@@ -1,0 +1,68 @@
+<header class="bg-white">
+  <div class="container flex  justify-between py-3">
+      <h1 class="text-3xl font-semibold"><span class="text-[#9A3333]">Dev</span>Journey <span class=" text-sm font-medium">{{EditoRCreate}} blog</span></h1>
+      <button (click)="onSubmit()" class="
+      py-1 px-4 md:px-5 lg:px-5
+      rounded-full border-0
+      text-sm font-meduim
+      bg-[#9A3333]
+      hover:text-[#9A3333]
+      hover:bg-transparent
+      hover:cursor-pointer
+    ">{{buttonPublishOrUpdateBlog}}</button>
+  </div>
+</header>
+
+
+<div class="container py-20">
+  <div class=" position-relative h-auto">
+      <input type="text" name="title" placeholder="Please Type Your Title here" class=" py-16 px-3 w-full border-2 focus:outline-none text-5xl font-semibold input-round " [(ngModel)]="titleBlog">
+      <label class="block position-absolute top-3 left-5">
+          <input type="file" class="block w-full text-sm text-slate-500
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm file:font-semibold
+            file:bg-[#9A3333]
+            file:text-white
+            hover:file:bg-transparent
+            hover:file:text-[#9A3333]
+            hover:file:cursor-pointer
+          " (change)="changeFile($event)"/>
+        </label>
+  </div>
+  <div class=" w-75 m-auto d-flex flex-column pt-5 gap-1">
+    <label for="selectedCategory" class=" fw-medium">Select a Category</label>
+    <p-dropdown   [options]="categories" [(ngModel)]="selectedCategory"  [showClear]="true" placeholder="Select a Catergory" class=" w-100 border rounded  rounded-2 "></p-dropdown>
+  </div>
+  <div class="pt-5">
+      <p-editor [(ngModel)]="bodyBlog">
+      </p-editor>
+      <div>
+        <span class="character-count"
+        [ngClass]="{
+          'valid': countCharacterLength(bodyBlog) <= maxLength,
+          'invalid': countCharacterLength(bodyBlog) > maxLength
+        }">
+    Characters: {{ countCharacterLength(bodyBlog) }} / {{ maxLength }}
+    <span class="error-message" *ngIf="countCharacterLength(bodyBlog) > maxLength">
+      You must enter less than 500 characters.
+    </span>
+  </span>
+      </div>
+
+      <div>
+        <span class="character-count"
+        [ngClass]="{
+          'valid': countImg(bodyBlog) <= 3,
+          'invalid': countImg(bodyBlog) > 3
+        }">
+    Characters: {{ countImg(bodyBlog) }} / {{ 3 }}
+    <span class="error-message" *ngIf="countImg(bodyBlog) > 3">
+      You can upload only 3 images
+    </span>
+  </span>
+      </div>
+  </div>
+  <p-toast></p-toast>
+
+</div>

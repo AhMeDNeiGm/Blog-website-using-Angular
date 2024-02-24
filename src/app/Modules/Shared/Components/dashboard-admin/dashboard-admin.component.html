@@ -1,0 +1,104 @@
+<div class="vh-100">
+  <div class="admin-dashborad-header-bg d-flex algin-items-center">
+    <!-- <div class="container h-75 m-auto "> -->
+    <div class="container">
+      <div class="row">
+
+        <div class="admin-dashborad-header d-flex justify-content-between align-items-center">
+
+          <div class="admin-dashborad-header_menu d-flex align-items-center gap-4">
+
+            <div id="bars">
+              <!-- !-------------------------col-------------------- -->
+              <!-- #region toggle -->
+              <!-- <i (click)="bars()" class="bars-icon fa-solid fa-bars"></i> -->
+              <i class="bars-icon fa-solid fa-bars"></i>
+
+              <!-- #endregion -->
+            </div>
+
+            <p id="stprojname">Dev<span id="ndprojname">Journey</span></p>
+          </div>
+
+          <div class="admin-dashborad-header_image d-flex align-items-center">
+            <div class="admin-dashborad-header_image_icon mx-4">
+              <i class="fa-solid fa-bell"></i>
+            </div>
+            <div>
+              <img src="assets\images\1.webp" alt="admin-image" />
+            </div>
+            <div>
+              <button (click)="onLogout()" class="btn btn-danger">Logout</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-3 ">
+        <div id="sidebar-bars" class="sidebar-bars mt-2 ">
+          <div class="row">
+            <!-- <div class="sidebar col-lg-3 col-md-4 col-sm-5 col-8 rounded-3 "> -->
+            <!-- !-------------------------col-------------------- -->
+
+            <div class="sidebar rounded-3">
+              <div class="sidebar-all-icons">
+                <div class="sidebar-nav mt-2 ">
+                  <!-- !--------------------------------------------- -->
+                  <a [routerLink]="[_GoToService.page.DashAdminHome]" routerLinkActive="router-link-active">
+                    <div class="sidebar-nav-text d-flex p-2 align-items-center">
+                      <i class=" mx-lg-3 mx-md-3 mx-sm-3 mx-auto fa-solid fa-house"></i>
+                      <p class="sidebar_p">DashBoard</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="sidebar-nav mt-5">
+                  <!-- !--------------------------------------------- -->
+                  <a [routerLink]="[_GoToService.page.DashAdminUsers]" routerLinkActive="router-link-active">
+                    <div class="sidebar-nav-text d-flex p-2 align-items-center">
+                      <i class=" mx-lg-3 mx-md-3 mx-sm-3 mx-auto fa-solid fa-users"></i>
+                      <p class="sidebar_p">Users</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="sidebar-nav mt-5">
+                  <!-- !--------------------------------------------- -->
+                  <a [routerLink]="[_GoToService.page.DashAdminBlogs]" routerLinkActive="router-link-active">
+                    <div class="sidebar-nav-text d-flex p-2 align-items-center">
+                      <i class=" mx-lg-3 mx-md-3 mx-sm-3 mx-auto fa-regular fa-hard-drive"></i>
+                      <p class="sidebar_p">Stories</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="container col-lg-9 col-md-8 col-sm-7 col-4 bg-danger"> -->
+            <!-- !-------------------------col-------------------- -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9"> <router-outlet></router-outlet> </div>
+    </div>
+  </div>
+
+
+
+  <!-- <p-sidebar [(visible)]="sidebarVisible">
+      <ng-template pTemplate="header">Header Content</ng-template>
+      <ng-template pTemplate="content">Body Content</ng-template>
+      <ng-template pTemplate="footer">Footer Content</ng-template>
+  </p-sidebar>
+  <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button> -->
+
+  <!-- <a href="" class="a-pics position-relative">
+      <img src="assets\images\1.webp" alt="" />
+      <div class="bg-danger position-absolute proj-text">
+        <h4 class="text-light p-5">PIXEL ARTMARKER</h4>
+       class="min-vh-100"  <span class="text-light">Using: HTML,CSS, JavaScript</span>
+      </div>
+    </a> -->
+</div>
